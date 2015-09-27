@@ -1,0 +1,36 @@
+* {
+  font-family: Verdana;
+}
+nav {
+  background-color: #d3cfcf;
+
+  padding: 1px 0;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+a:hover {
+    font-size: 18px;
+}
+nav li {
+  display: inline-block;
+  padding: 5px 15px;
+}
+nav li a {
+   \\ border: 1px solid #b7b0b0;
+    \\background-size: 0 100px;
+    \background-color: #0ca8d3;
+    \\color: white;
+    \\border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+footer {
+  background-color: #776e6e;
+  padding: 1px 0;
+  color: white;
+}
