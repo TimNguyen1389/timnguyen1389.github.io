@@ -24,14 +24,6 @@
        display: relative;
     }
 
-    #greeting {
-        font-weight: bolder;
-    }
-
-    #motto{
-        text-align: center;
-    }
-
     nav {
 
         font-size: 18px;
@@ -72,8 +64,18 @@
         padding:0;
         background-color: #f2efef;
     }
+
+    #motto{
+        text-align: center;
+    }
+    #greeting {
+        font-weight: bolder;
+        padding-left: 10px;
+    }
+
     .welcome {
         width: 800px;
+        padding-left: 10px;
     }
     #logo {
         float: left;
