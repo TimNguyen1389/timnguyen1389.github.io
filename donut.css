@@ -2,6 +2,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  max-width: 1200;
+}
+
 .logo {
   padding: 0 20px;
   float: left;
