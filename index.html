@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Top Pot Donuts</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Top Pot Donuts">
+  <meta name="keywords" content="donuts, simulation table">
+  <meta name="author" content="Tim Nguyen">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans: 400,700">
+  <link rel="stylesheet" type="text/css" href="donut.css">
+</head>
+<body>
+
+  <div class="bg-container">
+    <div class="logo"><img src="images/TP-logo.jpeg" height="140px" alt="company logo"></div>
+    <div class="img-container">
+      <img class="img-header" src="images/tp1.jpg" height="140px" alt="image of donuts">
+      <img class="img-header" src="images/tp2.jpg" height="140px" alt="image of a truck">
+      <img class="img-header" src="images/tp3.jpg" height="140px" alt="image of donut store">
+      <img class="img-header" src="images/tp4.jpg" height="140px" alt="image of coffee beans">
+    </div>
+  </div>
+
+  <header>
+    <h1>Top Pot Donuts</h1>
+  </header>
+
+  <section>
+    <h4>Top Pot Donuts, with franchises all over town, needs help calculating the number of donuts each location must make every day from 7:00 am to 6:00 pm, a total of 12 hours.
+    </h4>
+
+    <p>
+      The table below simulates donut demand for each location. Donut demand calculations are based on the minimum number of customers per hour, the maximum number of customers per hours, and the average number of donuts purchased per customer at each location. Donut demand simulation is caculated per hour and total hours (7am - 6pm, 12 hours). The total number represent the number of donuts each location must make every day. Number of customers per hour is a computer generated random number between the minimum and maximum number of customers per hour.
+    </p>
+    <p>
+      Please use the form below to add or update a location.
+    </p>
+
+    <form id="location-form">
+      <fieldset>
+        <legend><b>Add/Update Location Form</b></legend>
+
+        <label for="location">Add a location: </label>
+        <input name="place" type="text">
+
+        <strong>or</strong>
+
+        <select id="selectLocation" class="formBtn" name="locations">
+          <option value="blank" >Select a location to update</option>
+        </select><br><br>
+
+        <label for="minCust">Minimum customers per hour: </label>
+        <input name="minCust" type="number">
+
+        <label for="maxCust">Maximum customers per hour: </label>
+        <input name="maxCust" type="number">
+
+        <label for="averagePur">Average donuts purchased per customer: </label>
+        <input name="averagePur" type="number">
+
+        <button class="formBtn" type="submit">Add/Update Location</button>
+      </fieldset>
+    </form>
+
+    <h3>Donut Demand Simulation Table</h3>
+
+  </section>
+
+    <script type="text/javascript" src="donut.js"></script>
+
+</body>
+</html>

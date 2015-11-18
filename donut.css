@@ -1,0 +1,66 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+.logo {
+  padding: 0 20px;
+  float: left;
+}
+
+.img-container, .img-header {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4, p {
+  margin-right: 40px;
+  margin-left: 20px;
+}
+
+fieldset {
+  width: 1200px;
+  border-radius: 5px;
+}
+
+input {
+  margin-left: 2px;
+  margin-right: 15px;
+}
+
+input[type = number]{
+    width: 40px;
+}
+
+.formBtn {
+  border-radius: 5px;
+  margin-left: 10px;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #395e68;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  padding: 5px 10px;
+  border: 1px solid black;
+  background-color: #395e68;
+  color: white;
+}
+
+td {
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+tr:nth-child(odd) {
+  background: #c5dae0;
+}
