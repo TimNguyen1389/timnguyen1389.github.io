@@ -10,25 +10,32 @@
   <link rel="stylesheet" type="text/css" href="donut.css">
 </head>
 <body>
-
-  <div class="bg-container">
-    <div class="logo"><img src="images/TP-logo.jpeg" height="140px" alt="company logo"></div>
-    <div class="img-container">
-      <img class="img-header" src="images/tp1.jpg" height="140px" alt="image of donuts">
-      <img class="img-header" src="images/tp2.jpg" height="140px" alt="image of a truck">
-      <img class="img-header" src="images/tp3.jpg" height="140px" alt="image of donut store">
-      <img class="img-header" src="images/tp4.jpg" height="140px" alt="image of coffee beans">
-    </div>
-  </div>
-
+<div class="wrapper">
   <header>
+    <nav>
+      <div><p>TOP POT DONUTS</p></div>
+      <ul>
+        <li class="navItem"><a href="#">Home</a></li>
+        <li class="navItem"><a href="#">About</a></li>
+        <li class="navItem"><a href="#">Donuts</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="logo"><img src="images/TP-logo.jpeg" height="140px" alt="company logo"></div>
+      <div class="img-container">
+        <img class="img-header" src="images/tp1.jpg" height="140px" alt="image of donuts">
+        <img class="img-header" src="images/tp2.jpg" height="140px" alt="image of a truck">
+        <img class="img-header" src="images/tp3.jpg" height="140px" alt="image of donut store">
+        <img class="img-header" src="images/tp4.jpg" height="140px" alt="image of coffee beans">
+      </div>
+    </div>
     <h1>Top Pot Donuts</h1>
   </header>
 
   <section>
     <h4>Top Pot Donuts, with franchises all over town, needs help calculating the number of donuts each location must make every day from 7:00 am to 6:00 pm, a total of 12 hours.
     </h4>
-
+    <img id="donut"src="images/donut.jpeg" height="120px" alt="image of a donut">
     <p>
       The table below simulates donut demand for each location. Donut demand calculations are based on the minimum number of customers per hour, the maximum number of customers per hours, and the average number of donuts purchased per customer at each location. Donut demand simulation is caculated per hour and total hours (7am - 6pm, 12 hours). The total number represent the number of donuts each location must make every day. Number of customers per hour is a computer generated random number between the minimum and maximum number of customers per hour.
     </p>
@@ -67,6 +74,6 @@
   </section>
 
     <script type="text/javascript" src="donut.js"></script>
-
+</div>
 </body>
 </html>

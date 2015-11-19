@@ -3,12 +3,65 @@
 }
 
 body {
+  margin: 0;
+}
+
+.wrapper {
+  margin: auto;
   max-width: 1280px;
 }
 
+section, h1 {
+  margin-left: 15px;
+  position: relative;
+}
+
+#donut {
+  position: absolute;
+  top: 60px;
+  right: 80px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #395e68;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 57px;
+}
+
+.navItem {
+  display: inline;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: #c5dae0;
+}
+
 .logo {
-  padding: 0 20px;
-  float: left;
+  margin: auto;
+  bottom-padding: 0px;
 }
 
 .img-container, .img-header {
@@ -21,14 +74,20 @@ h3 {
   text-align: center;
 }
 
-h4, p {
-  margin-right: 40px;
+h4 {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+p {
+  margin-right: 230px;
   margin-left: 20px;
 }
 
 fieldset {
-  width: 1200px;
+  max-width: 1280px;
   border-radius: 5px;
+  margin: auto;
 }
 
 input {
@@ -51,6 +110,8 @@ input[type = number]{
 
 table {
   border-collapse: collapse;
+  margin: auto;
+  max-width: 1280px;
 }
 
 th {
