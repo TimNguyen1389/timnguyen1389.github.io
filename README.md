@@ -7,8 +7,6 @@
 
 Attribution:
 
-- Logo and images are property of Top Pot Donuts. They are being used on this assignment for educational purposes.
-
 - Open Sans font from Google Fonts is used on this web page.
 
 - www.w3schools.com, Stackoverflow, and JavaScript & JQuery by Jon Duckett are used as references when I am stuck.
