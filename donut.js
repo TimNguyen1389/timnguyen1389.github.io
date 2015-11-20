@@ -5,10 +5,11 @@ function DonutShop (locale, minimum, maximum, average) {
   this.minimum = minimum;
   this.maximum = maximum;
   this.average = average;
+  this.hourlyArr = []; //hourly array for bar chart
   this.donutDemand = function() {
     var perHourDemand;
     var total = 0;
-    var numHours = hours.length - 1 //minus location cell
+    var numHours = hours.length - 1; //minus location cell
     var table = document.getElementsByTagName('table')[0]; //get 1st table
     var row = table.insertRow(1); //insert row starting at index 1
     //insert location to row at cell index 0
@@ -20,12 +21,14 @@ function DonutShop (locale, minimum, maximum, average) {
       // donut demand per hour
       perHourDemand = (Math.floor(Math.random() * (this.maximum - this.minimum)) + this.minimum) * this.average;
       total += perHourDemand; //hourly total
+      this.hourlyArr.push(perHourDemand.toFixed(0));
 
       // insert perHourDemand to row starting at cell index 1
       row.insertCell(i).innerHTML = perHourDemand.toFixed(0);
     }
     // insert hourly total to row at last cell index number.
     row.insertCell(numHours).innerHTML = total.toFixed(0);
+    //this.hourlyArr.push(total.toFixed(0));// remove comment if adding total to chart
   };
 }
 
@@ -42,7 +45,7 @@ hours.forEach(function(hour) {
   donutTable.appendChild(row);
 });
 // insert table to html body
-document.body.appendChild(donutTable);
+document.getElementById("dsTable").appendChild(donutTable);
 
 //instantiate new DonutShop location objects
 var downtownDS = new DonutShop("Downtown", 8, 43, 4.50);
@@ -106,6 +109,8 @@ var handleLocationSubmit = function(event){
   var maxCust = event.target.maxCust.value;
   var averagePur = event.target.averagePur.value;
   var updatePlace = event.target.locations.value;
+  var elLegend = document.getElementById("dsLegend");
+  var elChart = document.getElementById("dsChart");
 
 // clear form after add/update location
 function clearForm(){
@@ -128,7 +133,14 @@ function clearForm(){
         donutShopArr[i].maximum = maxCust;
         donutShopArr[i].average = averagePur;
         removeTableRow(); //remove table rows
+        // reset hourlyArr for chart
+        donutShopArr.forEach(function(donutShop){
+        donutShop.hourlyArr = [];
+        });
         renderDonutShopArr(); //render rows and data
+        elLegend.removeChild(elLegend.firstChild); //remove chart legend ul
+        elChart.removeChild(elChart.firstChild); //remove chart canvas
+        renderChart();
         clearForm(); //clear form
       }
     }
@@ -140,6 +152,9 @@ function clearForm(){
     removeAllLoc(); //remove all location from drop-down list
     donutShopArr.push(newLocation); //push new location object into array
     selectLocation(); //populate drop-down list with locations
+    elLegend.removeChild(elLegend.firstChild); //remove chart legend ul
+    elChart.removeChild(elChart.firstChild); //remove chart canvas
+    renderChart();
     clearForm(); //clear form
   }
 };
@@ -148,9 +163,44 @@ function clearForm(){
 var locationForm = document.getElementById('location-form');
 locationForm.addEventListener('submit', handleLocationSubmit);
 
+function renderChart() {
+  var elCanvas = document.createElement("canvas");
+  document.getElementById("dsChart").appendChild(elCanvas);
 
+  var ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
+  var data = {
+      labels: ["7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"],
+      datasets: []
+      };
 
+  var Dataset = function(label, fillColor, strokeColor, highlightFill, highlightStroke, data) {
+    this.label = label;
+    this.fillColor = fillColor;
+    this.strokeColor = strokeColor;
+    this.highlightFill = highlightFill;
+    this.highlightStroke = highlightStroke;
+    this.data = data;
+    };
 
+  var colors = ["#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E", "#FF7F50", "#6495ED", "#DC143C"];
 
+  var i = 0;
+  donutShopArr.forEach(function(donutShop){
+    var color = colors[i];
+    i++;
+  //var color = '#' + (Math.random() * 0xFFFFFF<<0).toString(16); //colors not always disticnt
+    var newDataSet = new Dataset(donutShop.locale, color, color, color, color, donutShop.hourlyArr);
+    data.datasets.push(newDataSet);
+    });
 
+  var options = {
+    legendTemplate : '<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>'
+    };
 
+  var barChart = new Chart(ctx).Bar(data, options);
+  var legend = barChart.generateLegend();
+
+  document.getElementById("dsLegend").innerHTML = legend;
+
+}
+renderChart();
