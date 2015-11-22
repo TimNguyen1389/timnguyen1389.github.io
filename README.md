@@ -11,6 +11,8 @@ Attribution:
 
 - Open Sans font from Google Fonts is used on this web page.
 
+- Chart is from ChartJS.org.
+
 - www.w3schools.com, Stackoverflow, and JavaScript & JQuery by Jon Duckett are used as references when I am stuck.
 
 
