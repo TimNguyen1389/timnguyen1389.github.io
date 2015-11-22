@@ -4,11 +4,13 @@
 
 body {
   margin: 0;
+  background-color: #c5dae0;
 }
 
 .wrapper {
   margin: auto;
   max-width: 1280px;
+  background-color: #fff;
 }
 
 section, h1 {
