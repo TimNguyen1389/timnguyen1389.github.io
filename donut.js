@@ -33,7 +33,8 @@ function DonutShop (locale, minimum, maximum, average) {
 }
 
 // hours of operation in an array - table header data
-var hours = ["Location", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "Total"];
+var hours = ["Location", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
+             "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "Total"];
 
 // create table with location, hours of operation, and Total headings
 var donutTable = document.createElement('table');
@@ -121,7 +122,8 @@ function clearForm(){
   event.target.locations.value = "blank";
 }
 
-  if((!place && updatePlace === "blank") || (!minCust || isNaN(minCust)) || (!maxCust || isNaN(maxCust)) || (!averagePur || isNaN(averagePur))) {
+  if((!place && updatePlace === "blank") || (!minCust || isNaN(minCust)) ||
+    (!maxCust || isNaN(maxCust)) || (!averagePur || isNaN(averagePur))) {
     alert('Fields cannot be empty and Minimum, Maximum, and Average fields must be a number!');
     return;
   }
@@ -169,7 +171,8 @@ function renderChart() {
 
   var ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
   var data = {
-      labels: ["7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"],
+      labels: ["7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
+               "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM"],
       datasets: []
       };
 
@@ -182,7 +185,8 @@ function renderChart() {
     this.data = data;
     };
 
-  var colors = ["#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E", "#FF7F50", "#6495ED", "#DC143C"];
+  var colors = ["#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0",
+                "#7FFF00", "#D2691E", "#FF7F50", "#6495ED", "#DC143C"];
 
   var i = 0;
   donutShopArr.forEach(function(donutShop){
@@ -194,7 +198,10 @@ function renderChart() {
     });
 
   var options = {
-    legendTemplate : '<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>'
+    legendTemplate : '<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; '
+      + 'i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].'
+      + 'fillColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>',
+    responsive: true
     };
 
   var barChart = new Chart(ctx).Bar(data, options);
@@ -204,3 +211,6 @@ function renderChart() {
 
 }
 renderChart();
+
+
+
