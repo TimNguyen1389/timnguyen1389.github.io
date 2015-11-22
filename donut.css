@@ -4,7 +4,6 @@
 
 body {
   margin: 0;
-  background-color: #5F9EA0;
 }
 
 .wrapper {
@@ -21,7 +20,7 @@ section, h1 {
 #donut {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 15px;
 }
 
 nav {
@@ -40,6 +39,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .navItem {
@@ -60,7 +60,7 @@ a:hover {
 .img-container {
   margin: 0px;
   padding: 0px;
-  width: 1280px;
+  width: 100%;
   height: 400px;
   background-image: url("./images/donutFull.jpg");
   background-size: cover;
@@ -142,4 +142,66 @@ td {
 
 tr:nth-child(odd) {
   background: #c5dae0;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px 100px;
+  background-color: #05313d;
+  color: white;
+}
+
+@media only screen and (min-width: 1285px) {
+  body {
+    background-color: #5F9EA0;
+  }
+}
+
+@media only screen and (max-width: 1035px) {
+    label, input {
+    display: block;
+  }
+
+  }
+
+@media only screen and (max-width: 950px) {
+  #donut {
+      display: none;
+  }
+
+  p {
+    margin-right: 20px;
+  }
+
+  #dsLegend li {
+  display: block;
+  }
+
+  footer {
+    flex-direction: column;
+    padding-left: 50px;
+  }
+
+}
+
+@media only screen and (max-width: 570px) {
+  nav {
+    height: 80px;
+  }
+
+  .img-container {
+  width: 100%;
+  height: 250px;
+  }
+
+  .navItem {
+    display: block;
+  }
+
+  .wrapper {
+    margin-top: 80px;
+  }
+
 }
